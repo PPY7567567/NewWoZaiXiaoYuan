@@ -3,7 +3,7 @@ name: 定时自动跑测试
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/3 * * * *'
+    - cron: '*/1 * * * *'
 
 jobs:
   test-job:
@@ -11,7 +11,10 @@ jobs:
     timeout-minutes: 2
 
     steps:
-      - name: 打印测试+北京时间
+      - name: 设置北京时间
+        run: sudo timedatectl set-timezone Asia/Shanghai
+
+      - name: 打印测试结果
         run: |
-          echo "✅ 定时任务已经自动触发啦！"
-          echo "当前北京时间：$(date +"%Y-%m-%d %H:%M:%S")"
+          echo "✅ 定时自动触发成功！"
+          echo "现在时间：$(date +"%Y-%m-%d %H:%M:%S")"
