@@ -3,7 +3,7 @@ name: 定时自动跑测试
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '50 16 * * *'
 
 jobs:
   test-job:
