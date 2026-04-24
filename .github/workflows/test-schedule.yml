@@ -1,0 +1,17 @@
+name: 定时自动跑测试
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/3 * * * *'
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - name: 打印测试+北京时间
+        run: |
+          echo "✅ 定时任务已经自动触发啦！"
+          echo "当前北京时间：$(date +"%Y-%m-%d %H:%M:%S")"
