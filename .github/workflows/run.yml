@@ -20,7 +20,7 @@ jobs:
 
       - name: 安装依赖
         run: |
-          pip install pyyaml requests
+          pip install pyyaml requests yagmail
 
       - name: 运行打卡脚本
         run: python WoZaiXiaoYuan.py
