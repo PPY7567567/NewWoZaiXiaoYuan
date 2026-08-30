@@ -1,7 +1,6 @@
 name:自动打卡定时任务
 on:
   schedule:
-    # 北京时间 22:05 晚上10点05分，UTC时间14:05
     - cron: '05 14 * * *'
   workflow_dispatch:
 
