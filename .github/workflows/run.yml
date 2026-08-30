@@ -1,0 +1,26 @@
+name:自动打卡定时任务
+on:
+  schedule:
+    # 北京时间 22:05 晚上10点05分，UTC时间14:05
+    - cron: '05 14 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-task:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name:拉取代码
+        uses: actions/checkout@v4
+
+      - name:配置Python3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name:安装依赖
+        run: pip install -r requirements.txt
+
+      - name:运行打卡脚本
+        run: python WoZaiXiaoYuan.py
