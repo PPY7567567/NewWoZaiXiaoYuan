@@ -1,10 +1,8 @@
 name: 我在校园打卡
-
 on:
   workflow_dispatch:
   schedule:
-    - cron: '05 14 * * *'  # UTC 14:00 = 北京时间 22:00
-
+    - cron: '1 14 * * *'  # UTC14:08 → 北京时间22:08，避开05分全球任务拥堵
 jobs:
   User01:
     runs-on: ubuntu-latest
@@ -15,9 +13,9 @@ jobs:
         uses: actions/checkout@v4
       
       - name: 设置 Python 3.9
-        uses: actions/setup-python@v5  # 升级到 v5
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.9'        # 加引号
+          python-version: '3.9'
       
       - name: 安装依赖
         run: |
