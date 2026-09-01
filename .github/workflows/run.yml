@@ -1,8 +1,6 @@
 name: 自动打卡定时任务
 on:
-  schedule:
-    - cron: '05 14 * * *'
-  workflow_dispatch:
+  workflow_dispatch: # 只允许手动、外部API调用触发，删除schedule
 
 jobs:
   run-task:
@@ -20,7 +18,7 @@ jobs:
 
       - name: 安装依赖
         run: |
-          pip install pyyaml requests yagmail pycryptodome
+          pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyyaml requests yagmail pycryptodome
 
       - name: 运行打卡脚本
         run: python WoZaiXiaoYuan.py
