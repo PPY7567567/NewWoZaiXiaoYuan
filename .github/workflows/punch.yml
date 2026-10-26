@@ -2,18 +2,18 @@ name: 我在校园打卡
 on:
   workflow_dispatch:
   schedule:
-    - cron: '8 14 * * *'
+    - cron: '2 14 * * *'
 jobs:
   User01:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: CONFIG_01
     
     steps:
       - name: 检出代码
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       
       - name: 设置 Python 3.9
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.9'
       
